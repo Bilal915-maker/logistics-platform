@@ -23,6 +23,7 @@ export const restaurant = {
   name: "Royal Grill",
   tagline: "Sandwichs, Burgers & Grillades faits maison",
   phone: "01 23 45 67 89",
+  whatsapp: "33123456789",
   address: "12 Avenue de la République, 75000 Paris",
   hours: [
     { jours: "Lundi - Jeudi", horaire: "11h00 - 23h00" },
@@ -694,6 +695,14 @@ export const sauces = [
 
 export function formatPrice(price: number): string {
   return price.toFixed(2).replace(".", ",") + " €";
+}
+
+/** Le tarif à mettre en avant pour un produit : le prix "Menu" s'il existe,
+ *  sinon le tarif le plus élevé (généralement le plus complet). */
+export function getPrimaryPrice(item: MenuItem): PriceTier {
+  const menuTier = item.prices.find((p) => p.label === "Menu");
+  if (menuTier) return menuTier;
+  return item.prices[item.prices.length - 1];
 }
 
 export function findItemBySlug(slug: string): MenuItem | undefined {

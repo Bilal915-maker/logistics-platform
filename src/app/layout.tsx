@@ -3,6 +3,8 @@ import { Baloo_2, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
+import { CartProvider } from "@/context/CartContext";
 import { restaurant } from "@/data/menu";
 
 const baloo = Baloo_2({
@@ -28,9 +30,12 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${baloo.variable} ${poppins.variable} font-sans antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
