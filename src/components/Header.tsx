@@ -2,27 +2,26 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Phone, ShoppingBag } from "lucide-react";
-import { restaurant } from "@/data/menu";
-import { useCart } from "@/context/CartContext";
+import { Menu, X, Phone } from "lucide-react";
+import { atelier } from "@/data/site";
 
 const links = [
   { href: "/", label: "Accueil" },
-  { href: "/menu", label: "Notre Carte" },
-  { href: "/#specialites", label: "Spécialités" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/services", label: "Prestations" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const { count, openCart } = useCart();
-  const phoneHref = `tel:${restaurant.phone.replace(/\s/g, "")}`;
+  const phoneHref = `tel:${atelier.phone.replace(/\s/g, "")}`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-brand-cream/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="font-display text-2xl font-extrabold text-brand-red">
-          {restaurant.name}
+        <Link href="/" className="font-display text-2xl font-extrabold text-brand-plum">
+          {atelier.name}
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -30,7 +29,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-medium text-brand-dark transition hover:text-brand-red"
+              className="font-medium text-brand-dark transition hover:text-brand-plum"
             >
               {link.label}
             </Link>
@@ -40,21 +39,8 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a href={phoneHref} className="btn-primary hidden md:inline-flex">
             <Phone className="h-4 w-4" />
-            {restaurant.phone}
+            {atelier.phone}
           </a>
-
-          <button
-            onClick={openCart}
-            className="relative rounded-full bg-brand-dark/5 p-2.5 text-brand-dark transition hover:bg-brand-gold"
-            aria-label="Ouvrir le panier"
-          >
-            <ShoppingBag className="h-6 w-6" />
-            {count > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-brand-red px-1 text-xs font-bold text-white">
-                {count}
-              </span>
-            )}
-          </button>
 
           <button
             onClick={() => setOpen((v) => !v)}
@@ -80,7 +66,7 @@ export default function Header() {
           ))}
           <a href={phoneHref} className="btn-primary mt-2 justify-center">
             <Phone className="h-4 w-4" />
-            {restaurant.phone}
+            {atelier.phone}
           </a>
         </nav>
       )}

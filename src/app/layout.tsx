@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Baloo_2, Poppins } from "next/font/google";
+import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
-import { CartProvider } from "@/context/CartContext";
-import { restaurant } from "@/data/menu";
+import { atelier } from "@/data/site";
 
-const baloo = Baloo_2({
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["600", "700", "800"],
-  variable: "--font-baloo",
+  variable: "--font-playfair",
 });
 
 const poppins = Poppins({
@@ -20,8 +18,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: `${restaurant.name} — Sandwichs, Burgers & Grillades`,
-  description: `${restaurant.tagline}. Découvrez notre carte complète : sandwichs, libanais, paninis, burgers, naan burger, crousty bowls et nos spécialités signature.`,
+  title: `${atelier.name} — Couture sur mesure & Broderie`,
+  description: `${atelier.description}`,
 };
 
 export default function RootLayout({
@@ -29,13 +27,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className={`${baloo.variable} ${poppins.variable} font-sans antialiased`}>
-        <CartProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <CartDrawer />
-        </CartProvider>
+      <body className={`${playfair.variable} ${poppins.variable} font-sans antialiased`}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

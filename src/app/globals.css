@@ -13,16 +13,13 @@
 
 @layer components {
   .badge {
-    @apply rounded-full bg-brand-red px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-white;
+    @apply rounded-full bg-brand-plum px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-white;
   }
   .badge-gold {
     @apply rounded-full bg-brand-gold px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-brand-dark;
   }
-  .price-chip {
-    @apply rounded-full bg-brand-cream px-3 py-1 text-sm font-semibold text-brand-dark ring-1 ring-brand-dark/10;
-  }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-3 font-display font-bold text-white shadow-card transition hover:bg-brand-red-dark;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-plum px-6 py-3 font-display font-bold text-white shadow-card transition hover:bg-brand-plum-dark;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-display font-bold text-brand-dark shadow-card ring-1 ring-black/5 transition hover:bg-brand-gold;
