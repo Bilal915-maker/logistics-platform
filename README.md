@@ -1,7 +1,7 @@
-# Royal Grill — Site Web
+# Atelier Fil d'Or — Site Web
 
-Site vitrine professionnel pour un restaurant de sandwichs, burgers, paninis et
-grillades, construit avec **Next.js 14**, **TypeScript** et **Tailwind CSS**.
+Site vitrine professionnel pour un atelier de couture et de broderie, construit
+avec **Next.js 14**, **TypeScript** et **Tailwind CSS**.
 
 ## Démarrer en local
 
@@ -14,48 +14,53 @@ Le site est ensuite disponible sur http://localhost:3000
 
 ## Structure du site
 
-- `/` — Page d'accueil : présentation, spécialités signature, aperçu de la carte.
-- `/menu` — La carte complète, organisée par catégories avec navigation rapide.
+- `/` — Page d'accueil : présentation, prestations, à propos, galerie, avis clients.
+- `/services` — Détail de toutes les prestations (couture, broderie, retouches...).
+- `/galerie` — Portfolio des réalisations, filtrable par catégorie.
+- `/a-propos` — Présentation de l'atelier et avis clients.
+- `/contact` — Formulaire de contact, coordonnées et horaires.
 
-## Personnaliser le restaurant
+## Personnaliser l'atelier
 
-Toutes les informations générales (nom, slogan, téléphone, adresse, horaires)
-se trouvent en haut du fichier [`src/data/menu.ts`](src/data/menu.ts) dans
-l'objet `restaurant` :
+Toutes les informations générales (nom, slogan, téléphone, email, adresse,
+horaires, réseaux sociaux) se trouvent en haut du fichier
+[`src/data/site.ts`](src/data/site.ts) dans l'objet `atelier` :
 
 ```ts
-export const restaurant = {
-  name: "Royal Grill",
-  tagline: "Sandwichs, Burgers & Grillades faits maison",
+export const atelier = {
+  name: "Atelier Fil d'Or",
+  tagline: "Couture sur mesure & Broderie artisanale",
   phone: "01 23 45 67 89",
-  address: "12 Avenue de la République, 75000 Paris",
+  email: "contact@atelierfildor.fr",
+  address: "8 Rue des Tisserands, 75011 Paris",
   hours: [...],
 };
 ```
 
-> Le nom **"Royal Grill"** et les coordonnées sont des valeurs provisoires —
-> à remplacer par les vraies informations du restaurant.
+> Le nom **"Atelier Fil d'Or"** et les coordonnées sont des valeurs
+> provisoires — à remplacer par les vraies informations de l'atelier.
 
-## Modifier la carte (produits, prix, descriptions)
+## Modifier les prestations, la galerie et les avis
 
-Tout le menu (catégories, produits, descriptions, prix) est dans le même
-fichier [`src/data/menu.ts`](src/data/menu.ts), sous forme de tableau
-`menu`. Chaque catégorie contient une liste `items`, chaque item a :
+Tout le contenu (prestations, réalisations de la galerie, avis clients) est
+dans le même fichier [`src/data/site.ts`](src/data/site.ts) :
 
-- `name` : nom affiché
-- `description` : ingrédients (optionnel)
-- `prices` : un ou plusieurs tarifs (`{ label: "Menu", price: 8.5 }`)
-- `badge` : `"nouveau"` ou `"signature"` (optionnel)
+- `services` : liste des prestations (titre, description, détails, icône).
+- `galleryItems` : réalisations affichées dans la galerie (titre, catégorie).
+- `testimonials` : avis clients affichés sur le site.
 
-Les **sauces** (offertes au choix) sont listées dans `sauces`, et les
-**spécialités premium** mises en avant sur la page d'accueil sont définies
-dans `premiumSlugs`.
+## Ajouter les photos des réalisations
 
-## Ajouter les photos des produits
+Voir [`public/images/gallery/README.md`](public/images/gallery/README.md)
+pour la liste exacte des noms de fichiers attendus. Tant qu'une photo n'est
+pas ajoutée, un visuel de remplacement (emoji + couleur) s'affiche
+automatiquement.
 
-Voir [`public/images/menu/README.md`](public/images/menu/README.md) pour la
-liste exacte des noms de fichiers attendus. Tant qu'une photo n'est pas
-ajoutée, un visuel de remplacement (emoji + couleur) s'affiche automatiquement.
+## Formulaire de contact
+
+Le formulaire de la page `/contact` prépare un e-mail (objet et message) et
+ouvre le client de messagerie du visiteur, à l'adresse définie dans
+`atelier.email`. Il ne nécessite aucun serveur ou service tiers.
 
 ## Déploiement
 

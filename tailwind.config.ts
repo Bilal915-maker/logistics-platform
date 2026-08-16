@@ -6,15 +6,15 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          red: "#E4032E",
-          "red-dark": "#B5021F",
-          dark: "#1A1A1A",
-          gold: "#F5B400",
-          cream: "#FFF8EE",
+          plum: "#6B2737",
+          "plum-dark": "#4A1B27",
+          dark: "#2B2420",
+          gold: "#C9A227",
+          cream: "#FBF6EF",
         },
       },
       fontFamily: {
-        display: ["var(--font-baloo)", "sans-serif"],
+        display: ["var(--font-playfair)", "serif"],
         sans: ["var(--font-poppins)", "sans-serif"],
       },
       boxShadow: {

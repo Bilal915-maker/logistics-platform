@@ -1,15 +1,21 @@
 import Hero from "@/components/Hero";
 import FeatureRow from "@/components/FeatureRow";
-import SpecialtiesSection from "@/components/SpecialtiesSection";
-import CategoryGrid from "@/components/CategoryGrid";
+import ServicesSection from "@/components/ServicesSection";
+import AboutSection from "@/components/AboutSection";
+import GallerySection from "@/components/GallerySection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CTASection from "@/components/CTASection";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <FeatureRow />
-      <SpecialtiesSection />
-      <CategoryGrid />
+      <ServicesSection />
+      <AboutSection />
+      <GallerySection />
+      <TestimonialsSection />
+      <CTASection />
     </>
   );
 }

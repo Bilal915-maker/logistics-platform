@@ -1,25 +1,25 @@
-import { ChefHat, Leaf, Clock3, ThumbsUp } from "lucide-react";
+import { Hand, Gem, Clock3, ThumbsUp } from "lucide-react";
 
 const features = [
   {
-    icon: ChefHat,
-    title: "Fait maison",
-    desc: "Recettes préparées sur place, chaque jour, par notre équipe.",
+    icon: Hand,
+    title: "Fait main",
+    desc: "Chaque pièce est façonnée avec soin dans notre atelier, du croquis à la finition.",
   },
   {
-    icon: Leaf,
-    title: "Produits frais",
-    desc: "Viandes, légumes et pains sélectionnés avec soin.",
+    icon: Gem,
+    title: "Matières de qualité",
+    desc: "Tissus, fils et fournitures sélectionnés avec exigence pour un rendu durable.",
   },
   {
     icon: Clock3,
-    title: "Service rapide",
-    desc: "Votre commande prête en quelques minutes, sur place ou à emporter.",
+    title: "Délais respectés",
+    desc: "Un planning clair annoncé dès le premier rendez-vous, jusqu'à la livraison.",
   },
   {
     icon: ThumbsUp,
-    title: "Qualité garantie",
-    desc: "Le goût et la fraîcheur, à chaque bouchée.",
+    title: "Satisfaction garantie",
+    desc: "Essayages et ajustements jusqu'à obtenir la coupe et le rendu qui vous ressemblent.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function FeatureRow() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         {features.map(({ icon: Icon, title, desc }) => (
           <div key={title} className="flex flex-col items-start gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-red/10 text-brand-red">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-plum/10 text-brand-plum">
               <Icon className="h-6 w-6" />
             </div>
             <h3 className="font-display text-lg font-bold text-brand-dark">{title}</h3>
